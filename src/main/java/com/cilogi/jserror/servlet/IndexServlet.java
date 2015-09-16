@@ -43,6 +43,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,6 +90,7 @@ public class IndexServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        InputStream is = getClass().getResourceAsStream("/templates/index.mustache");
         GaeUser user = getCurrentUser();
         if (user == null) {
             issue(MediaType.PLAIN_TEXT_UTF_8, HttpServletResponse.SC_FORBIDDEN, "forbidden", response);

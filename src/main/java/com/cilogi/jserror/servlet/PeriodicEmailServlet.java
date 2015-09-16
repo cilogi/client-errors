@@ -61,7 +61,16 @@ public class PeriodicEmailServlet extends BaseServlet {
     }
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doProcess(request, response);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doProcess(request, response);
+    }
+
+    private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GaeUser admin = new GaeUserDAO().get("tim@timniblett.net");
         if (admin != null) {
             String token = admin.getToken();
@@ -73,7 +82,7 @@ public class PeriodicEmailServlet extends BaseServlet {
                 map.put("userName", ADMIN_NAME);
                 map.put("time", DEFAULT_SECONDS);
                 map.put("records", records);
-                String html =  render.render("email", map);
+                String html =  render.render("email.mustache", map);
                 sendEmail.send(emailTo, "New JS Errors", html);
                 issue(MediaType.PLAIN_TEXT_UTF_8, HttpServletResponse.SC_OK, records.size() + " records", response);
             } else {
@@ -81,5 +90,6 @@ public class PeriodicEmailServlet extends BaseServlet {
             }
         }
     }
+
 
 }
