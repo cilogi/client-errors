@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Error Sample</title>
+    {{>inc/head}}
+</head>
+<body class="cilogi-info">
+{{>inc/navbar}}
+<div class="container" style="margin-top:10px; font-size:15px;">
+    <div style="padding: 0.25em" class="cilogi-title">
+        <h1 class="cilogi-title">Sample</h1>
+    </div>
+    <hr class="soften">
+    <section>
+        <div class="row">
+            <p id="loginStatus">Looking for errors</p>
+
+            <h4>Hit a button to get an error</h4>
+
+            <div>
+                <button class="btn btn-primary" id="button-a">Button A</button>
+            </div>
+            <ul>
+                {{#records}}
+                <li>{{details}}</li>
+                {{/records}}
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- container -->
+{{>inc/foot}}
+<script>
+    $(document).ready(function () {
+        $("#button-a").on("click", function (e) {
+            e.preventDefault();
+            froggle();
+        })
+    });
+    function logError(details) {
+        $.ajax({
+            type: 'POST',
+            url: '/jserror',
+            data: JSON.stringify({
+                token: "c5633bb5-e5b5-43d3-9907-443771501ef0",
+                userAgent: navigator.userAgent,
+                details: details
+            }),
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function() {
+                console.log("error recorded");
+            },
+            error: function(jqXHR, status, error) {
+                console.log("FAIL to record error");
+            }
+        });
+    }
+
+    window.onerror = function (message, file, line) {
+        logError(file + ':' + line + '\n\n' + message);
+    };
+</script>
+</body>
+</html>

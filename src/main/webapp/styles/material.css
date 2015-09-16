@@ -1,0 +1,151 @@
+
+body {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.jumbotron {
+    background-color: #29b6f6;
+    background-image: none;
+}
+
+nav.navbar-inverse {
+    background-image:none;
+    background-color: #29b6f6;
+    color: white;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav a:hover, .nav a:active {
+    background-color: #26A9E5;
+}                 S
+
+.nav-tabs > li > a {
+    color: #555;
+}
+
+.navbar-fixed-top {
+    background-color: #29b6f6;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.btn {
+    border: none;
+    border-radius: 0;
+}
+
+.panel, .btn {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+nav .zocial.google {
+    background-image: none;
+    background-color: #337ab7;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav .zocial.google:hover {
+    background-color: #286090;
+}
+
+.nav > li > a:hover {
+  color: white;
+  background-color: #27AEEA;
+}
+
+.nav > li > a:active, .nav > li > a:focus {
+  color: white;
+  background-color: #00A9F6;
+}
+
+
+
+.light {
+    font-weight: 300;
+}
+
+.large {
+    font-size: 18pt;
+}
+
+#contents {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.advert {
+    text-align: center;
+}
+
+.advert h2 {
+    color: #29b6f6;
+}
+
+.cilogi-title {
+    line-height: 1.5em;
+    background-color: #ee6e73;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+.cilogi-support {
+    font-size: 16px;
+}
+
+figure {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+figure img {
+    max-width: 90%;
+}
+
+figure figcaption {
+    font-weight: bold;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+.pagination > li > a, .pagination > li.disabled a, .pagination > li.disabled a:hover,
+.pagination > li.disabled a:active, .page-table .pageURL {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.page-table .pageURL:hover, .page-table .pageURL:active {
+    background-color: rgba(200,200,200,0.5);
+}
+
+.pagination > li > a.active {
+    font-weight: bold;
+}
+
+.pagination {
+    margin-top: 0;
+}
+
+.cilogi-info h1, .cilogi-info h2,
+.cilogi-info h2 a, .cilogi-info h2 a:visited {
+    color: #29b6f6;
+}
+
+.cilogi-info .col-sm-3 h3 {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.settings .btn-default {
+    background: rgba(255,255,255,0.4);
+}
+
+#contents .settings input.const {
+    background: rgba(238,200,200,0.1);
+}

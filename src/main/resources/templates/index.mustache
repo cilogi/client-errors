@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Errors</title>
+{{>inc/head}}
+</head>
+<body class="cilogi-info">
+{{>inc/navbar}}
+<div class="container" style="margin-top:10px; font-size:15px;">
+    <div style="padding: 0.25em" class="cilogi-title">
+        <h1 class="cilogi-title">Home Page</h1>
+    </div>
+    <hr class="soften">
+    <section>
+        <div class="row">
+            <p id="loginStatus">Hello {{userName}}, your token is {{token}}</p>
+
+            <h4>Errors for the past {{time}} seconds</h4>
+            <ul>
+                {{#records}}
+                <li>{{details}}</li>
+                {{/records}}
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- container -->
+{{>inc/foot}}
+</body>
+</html>
