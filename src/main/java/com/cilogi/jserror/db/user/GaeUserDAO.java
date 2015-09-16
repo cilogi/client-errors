@@ -22,6 +22,7 @@
 package com.cilogi.jserror.db.user;
 
 import com.cilogi.jserror.db.BaseDAO;
+import com.cilogi.util.Secrets;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import com.googlecode.objectify.ObjectifyService;
@@ -41,7 +42,7 @@ public class GaeUserDAO extends BaseDAO<GaeUser> {
             "tim.niblett@cilogi.com"
     );
 
-    private static final String TOKEN = "c5633bb5-e5b5-43d3-9907-443771501ef0";
+    private static final String TOKEN = Secrets.get("token");
 
     static {
         ObjectifyService.register(GaeUser.class);

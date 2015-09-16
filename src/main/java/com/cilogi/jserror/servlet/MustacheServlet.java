@@ -21,11 +21,13 @@
 package com.cilogi.jserror.servlet;
 
 import com.cilogi.jserror.util.NamedCache;
+import com.cilogi.util.Secrets;
 import com.cilogi.util.mustache.MustacheRender;
 import com.google.appengine.api.memcache.Expiration;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.net.MediaType;
 import org.json.JSONException;
 import org.slf4j.Logger;
@@ -91,7 +93,7 @@ public class MustacheServlet extends BaseServlet {
     private String loadRender(String template) {
         String cached = memcache.getString(template);
         if (cached == null) {
-            cached = render.render(template, new Object());
+            cached = render.render(template, ImmutableMap.of("token", Secrets.get("token")));
             memcache.put(template, cached, Expiration.byDeltaSeconds(CACHE_SECONDS));
         }
         return cached;

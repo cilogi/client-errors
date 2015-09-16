@@ -7,3 +7,4 @@ classes/
 *.zip
 bower_components/
 cache.manifest
+secret.properties
